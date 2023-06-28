@@ -11,7 +11,7 @@ def list_division(my_list_1, my_list_2, list_length):
     result = []
     for num in range(list_length):
         try:
-            value_1 = my_list_[num] if num < len(my_list_1) else 0
+            value_1 = my_list_1[num] if num < len(my_list_1) else 0
             value_2 = my_list_2[num] if num < len(my_list_2) else 1
 
             try:
