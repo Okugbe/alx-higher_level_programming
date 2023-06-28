@@ -11,15 +11,11 @@ def list_division(my_list_1, my_list_2, list_length):
     result = []
     for num in range(list_length):
         try:
-            value_1 = my_list_1[num] if num < len(my_list_1) else 0
-            value_2 = my_list_2[num] if num < len(my_list_2) else 1
-
-            try:
-                division_result = value_1 / value_2
-                result.append(division_result)
-            except ZeroDivisionError:
-                print("division by 0")
-                result.append(0)
+            division_result = my_list_1[num] / my_list_2[num]
+            result.append(division_result)
+        except ZeroDivisionError:
+            print("division by 0")
+            result.append(0)
         except TypeError:
             print("wrong type")
             result.append(0)
