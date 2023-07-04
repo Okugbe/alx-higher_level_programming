@@ -4,38 +4,42 @@
 This module contains a function that indents texts
 
 """
-
-
 def text_indentation(text):
-    '''This function prints a text with 2 new lines after each ".", "?", or ":"
+    """Prints a text with 2 new lines after each ".", "?", or ":"
 
     Args:
-        text (str): The string to be printed
+        text (str): The string to be printed.
 
     Raises:
-        TypeError: If text is not a string
+        TypeError: If text is not a string.
 
-    '''
-    def text_indentation(text):
-    # Check if text is a string
+    """
+
+    # Validate if text is a string
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    # Remove leading and trailing spaces from the text
-    text = text.strip()
+    # Initialize the count variable to track the position in the text
+    count = 0
 
-    # Define the characters that require new lines
-    new_line_chars = ['.', '?', ':']
+    # Skip leading spaces
+    while count < len(text) and text[count] == " ":
+        count = count + 1
 
-    # Print the indented text
-    indentation = ""
-    for char in text:
-        print(indentation + char, end="")
-        if char in new_line_chars:
-            print("\n\n" + indentation, end="")
-            # Reset the indentation for the next line
-            indentation = ""
-        else:
-            indentation += " "
-    print()
+    # Iterate through each character of the text
+    while count < len(text):
+        print(text[count], end="")  # Print the current character
+
+        # Check if a new line should be added after ".", "?", or ":"
+        if text[count] == "\n" or text[count] in ".?:":
+            if text[count] in ".?:":
+                print("\n")  # Print two new lines
+            count = count + 1  # Move to the next character
+
+            # Skip leading spaces after a new line
+            while count < len(text) and text[count] == " ":
+                count = count + 1
+            continue
+
+        count = count + 1  # Move to the next character
 
