@@ -1,15 +1,16 @@
 #!/usr/bin/python3
-"""Inheris from baseGeometry"""
+
+"""The module is 8-base_geometry"""
+
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """a class to define rectangle using BaseGeometry"""
+    """A subclass of BaseGeometry class"""
 
     def __init__(self, width, height):
-        """Initialize a new Rectangle
-        """
+        """initialize private attributes"""
         self.integer_validator("width", width)
-        self.__width = width
         self.integer_validator("height", height)
+        self.__width = width
         self.__height = height
