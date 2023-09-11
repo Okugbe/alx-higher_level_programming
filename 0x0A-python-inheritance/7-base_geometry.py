@@ -1,15 +1,10 @@
 #!/usr/bin/python3
-"""Inheris from baseGeometry"""
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+"""this module defines a function that adds attributes to objects"""
 
 
-class Rectangle(BaseGeometry):
-    """a class to define rectangle using BaseGeometry"""
-
-    def __init__(self, width, height):
-        """Initialize a new Rectangle
-        """
-        self.integer_validator("width", width)
-        self.__width = width
-        self.integer_validator("height", height)
-        self.__height = height
+def add_attribute(obj, att, value):
+    """Add a new attribute to an object if possible
+    """
+    if not hasattr(obj, "__dict__"):
+        raise TypeError("can't add new attribute")
+    setattr(obj, att, value)
